@@ -103,6 +103,11 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $delete_action = $user->delete();
+
+        if ($delete_action == 1) {
+            return response()->json("The User Deleted");
+        }
+        return $delete_action;
     }
 }
